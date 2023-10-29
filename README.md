@@ -39,6 +39,10 @@ For training, Please refer to https://github.com/hyy-2000/R-ABLE
 
 ```
 conda env create -f environment.yml
+
+or
+
+conda install --yes --file requirement.txt
 ```
 
 ```
