@@ -42,12 +42,12 @@ For training, Please refer to https://github.com/hyy-2000/R-ABLE
 `Refer to appendix <Installation & User Guide> in project report at Github Folder: ProjectReport`
 
 ```
-$ conda env create -f environment.yml
+> $ conda env create -f environment.yml
 ```
 
 ```
-$ python -m http.server
-$ python app.py
+> $ python -m http.server
+> $ python app.py
 ```
 > **Go to URL using web browser** http://localhost:8000
 
