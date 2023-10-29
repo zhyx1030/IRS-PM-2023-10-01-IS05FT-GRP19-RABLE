@@ -47,7 +47,6 @@ $ conda env create -f environment.yml
 
 ```
 $ python -m http.server
-
 $ python app.py
 ```
 > **Go to URL using web browser** http://localhost:8000
