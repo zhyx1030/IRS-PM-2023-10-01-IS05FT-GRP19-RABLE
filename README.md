@@ -23,7 +23,7 @@ Our team had an amazing time working on this project, and hope to share our insi
 | :------------ |:---------------:| ------| :-----|
 | He Yuanyang | A0285691N | Reprocudtion of ABLE,implementation of RABLE, implementation of generative pipeline| E1221503@e.nus.edu |
 | Zhang Yixiao | A0285937J | Collation and visualization of project results, research on related work in academia| E1221749@u.nus.edu |
-| Liu Zhiqian | A0285884H | xxxxxxxxxx yyyyyyyyyy zzzzzzzzzz| A |
+| Liu Zhiqian | A0285884H | Front-end Development; Front-end and Back-end Interface Specification; Model collaberation| E1221696@u.nus.edu |
 | Fan Hanwei | A0286013L | Back-end Development; Front-end & model collaberation| E1221825@u.nus.edu |
 
 ---
