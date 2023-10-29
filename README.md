@@ -27,7 +27,7 @@ Our team had an amazing time working on this project, and hope to share our insi
 | He Yuanyang | A0285691N | xxxxxxxxxx yyyyyyyyyy zzzzzzzzzz| A |
 | Zhang Yixiao | A0285937J | xxxxxxxxxx yyyyyyyyyy zzzzzzzzzz| E1221749@u.nus.edu |
 | Liu Zhiqian | A0285884H | xxxxxxxxxx yyyyyyyyyy zzzzzzzzzz| A |
-| Fan Hanwei | A0286013L | xxxxxxxxxx yyyyyyyyyy zzzzzzzzzz| A |
+| Fan Hanwei | A0286013L | Back-end Development; Front-end & model collaberation| E1221825@u.nus.edu |
 
 ---
 
@@ -35,8 +35,6 @@ Our team had an amazing time working on this project, and hope to share our insi
 
 [![Sudoku AI Solver](http://img.youtube.com/vi/-AiYLUjP6o8/0.jpg)](https://youtu.be/-AiYLUjP6o8 "Sudoku AI Solver")
 
-Note: It is not mandatory for every project member to appear in video presentation; Presentation by one project member is acceptable. 
-More reference video presentations [here](https://telescopeuser.wordpress.com/2018/03/31/master-of-technology-solution-know-how-video-index-2/ "video presentations")
 
 ---
 
@@ -46,13 +44,9 @@ More reference video presentations [here](https://telescopeuser.wordpress.com/20
 
 ### [ 1 ] To run the system using iss-vm
 
-> download pre-built virtual machine from http://bit.ly/iss-vm
-
-> start iss-vm
-
 > open terminal in iss-vm
 
-> $ git clone https://github.com/telescopeuser/Workshop-Project-Submission-Template.git
+> $ git clone 
 
 > $ source activate iss-env-py2
 
@@ -60,21 +54,16 @@ More reference video presentations [here](https://telescopeuser.wordpress.com/20
 
 > (iss-env-py2) $ python app.py
 
-> **Go to URL using web browser** http://0.0.0.0:5000 or http://127.0.0.1:5000
+> **Go to URL using web browser** http://localhost:8000
 
 ### [ 2 ] To run the system in other/local machine:
-### Install additional necessary libraries. This application works in python 2 only.
-
-> $ sudo apt-get install python-clips clips build-essential libssl-dev libffi-dev python-dev python-pip
-
-> $ pip install pyclips flask flask-socketio eventlet simplejson pandas
 
 ---
-## SECTION 6 : PROJECT REPORT / PAPER
+## SECTION 6 : PROJECT REPORT
 
 `Refer to project report at Github Folder: ProjectReport`
 
-**Recommended Sections for Project Report / Paper:**
+**Sections of Project Report:**
 - Executive Summary / Paper Abstract
 - Sponsor Company Introduction (if applicable)
 - Business Problem Background
@@ -91,25 +80,5 @@ More reference video presentations [here](https://telescopeuser.wordpress.com/20
 - Appendix of report: List of Abbreviations (if applicable)
 - Appendix of report: References (if applicable)
 
----
-## SECTION 7 : MISCELLANEOUS
-
-`Refer to Github Folder: Miscellaneous`
-
-### HDB_BTO_SURVEY.xlsx
-* Results of survey
-* Insights derived, which were subsequently used in our system
-
----
-
-### <<<<<<<<<<<<<<<<<<<< End of Template >>>>>>>>>>>>>>>>>>>>
-
----
-
-**This [Machine Reasoning (MR)](https://www.iss.nus.edu.sg/executive-education/course/detail/machine-reasoning "Machine Reasoning") course is part of the Analytics and Intelligent Systems and Graduate Certificate in [Intelligent Reasoning Systems (IRS)](https://www.iss.nus.edu.sg/stackable-certificate-programmes/intelligent-systems "Intelligent Reasoning Systems") series offered by [NUS-ISS](https://www.iss.nus.edu.sg "Institute of Systems Science, National University of Singapore").**
-
-**Lecturer: [GU Zhan (Sam)](https://www.iss.nus.edu.sg/about-us/staff/detail/201/GU%20Zhan "GU Zhan (Sam)")**
-
-[![alt text](https://www.iss.nus.edu.sg/images/default-source/About-Us/7.6.1-teaching-staff/sam-website.tmb-.png "Let's check Sam' profile page")](https://www.iss.nus.edu.sg/about-us/staff/detail/201/GU%20Zhan)
 
 **zhan.gu@nus.edu.sg**
