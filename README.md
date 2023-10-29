@@ -33,7 +33,7 @@ Our team had an amazing time working on this project, and hope to share our insi
 
 ## SECTION 4 : VIDEO OF SYSTEM MODELLING & USE CASE DEMO
 
-[RABLE](https://youtu.be/x92ZJYSoL0E)
+[![RABLE](video.png)](https://youtu.be/x92ZJYSoL0E)
 
 
 ---
