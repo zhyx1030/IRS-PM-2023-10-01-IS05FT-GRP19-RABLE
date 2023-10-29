@@ -33,7 +33,7 @@ Our team had an amazing time working on this project, and hope to share our insi
 
 ## SECTION 4 : VIDEO OF SYSTEM MODELLING & USE CASE DEMO
 
-[![Sudoku AI Solver](http://img.youtube.com/vi/-AiYLUjP6o8/0.jpg)](https://youtu.be/-AiYLUjP6o8 "Sudoku AI Solver")
+[RABLE](https://youtu.be/x92ZJYSoL0E)
 
 
 ---
