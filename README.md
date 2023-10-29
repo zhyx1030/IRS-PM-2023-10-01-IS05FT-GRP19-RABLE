@@ -1,9 +1,6 @@
 ## SECTION 1 : PROJECT TITLE
 ## RABLE - Rebalancing Data with Generative Method for Imbalanced Partial Label Learning
 
-<img src="SystemCode/clips/static/hdb-bto.png"
-     style="float: left; margin-right: 0px;" />
-
 ---
 
 ## SECTION 2 : EXECUTIVE SUMMARY / PAPER ABSTRACT
@@ -44,7 +41,7 @@ For training, Please refer to https://github.com/hyy-2000/R-ABLE
 
 `Refer to appendix <Installation & User Guide> in project report at Github Folder: ProjectReport`
 
-### [ 1 ] To run the system using iss-vm
+### [ 1 ] Installat
 
 > open terminal in iss-vm
 
