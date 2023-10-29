@@ -24,7 +24,7 @@ Our team had an amazing time working on this project, and hope to share our insi
 
 | Official Full Name  | Student ID (MTech Applicable)  | Work Items (Who Did What) | Email (Optional) |
 | :------------ |:---------------:| ------| :-----|
-| He Yuanyang | A0285691N | xxxxxxxxxx yyyyyyyyyy zzzzzzzzzz| A |
+| He Yuanyang | A0285691N | Reprocudtion of ABLE,implementation of RABLE, implementation of generative pipeline| A |
 | Zhang Yixiao | A0285937J | xxxxxxxxxx yyyyyyyyyy zzzzzzzzzz| E1221749@u.nus.edu |
 | Liu Zhiqian | A0285884H | xxxxxxxxxx yyyyyyyyyy zzzzzzzzzz| A |
 | Fan Hanwei | A0286013L | Back-end Development; Front-end & model collaberation| E1221825@u.nus.edu |
