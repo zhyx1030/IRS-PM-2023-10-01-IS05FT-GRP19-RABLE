@@ -41,43 +41,29 @@ For training, Please refer to https://github.com/hyy-2000/R-ABLE
 
 `Refer to appendix <Installation & User Guide> in project report at Github Folder: ProjectReport`
 
-### [ 1 ] Installat
+> $ conda env create -f environment.yml
 
-> open terminal in iss-vm
 
-> $ git clone 
+> $ python -m http.server
 
-> $ source activate iss-env-py2
-
-> (iss-env-py2) $ cd Workshop-Project-Submission-Template/SystemCode/clips
-
-> (iss-env-py2) $ python app.py
+> $ python app.py
 
 > **Go to URL using web browser** http://localhost:8000
 
-### [ 2 ] To run the system in other/local machine:
 
----
 ## SECTION 6 : PROJECT REPORT
 
 `Refer to project report at Github Folder: ProjectReport`
 
 **Sections of Project Report:**
-- Executive Summary / Paper Abstract
-- Sponsor Company Introduction (if applicable)
-- Business Problem Background
-- Market Research
-- Project Objectives & Success Measurements
-- Project Solution (To detail domain modelling & system design.)
-- Project Implementation (To detail system development & testing approach.)
-- Project Performance & Validation (To prove project objectives are met.)
-- Project Conclusions: Findings & Recommendation
+- Introduction
+- The Costly Quest for Precision: A Market Example with Data Analysis
+- Related Work
+- Methodology
+- Visualization
+- Conclusions
+- References
 - Appendix of report: Project Proposal
-- Appendix of report: Mapped System Functionalities against knowledge, techniques and skills of modular courses: MR, RS, CGS
+- Appendix of report: Mapped System Functionalities against modular course
 - Appendix of report: Installation and User Guide
-- Appendix of report: 1-2 pages individual project report per project member, including: Individual reflection of project journey: (1) personal contribution to group project (2) what learnt is most useful for you (3) how you can apply the knowledge and skills in other situations or your workplaces
-- Appendix of report: List of Abbreviations (if applicable)
-- Appendix of report: References (if applicable)
-
-
-**zhan.gu@nus.edu.sg**
+- Appendix of report: individual project report per project member
