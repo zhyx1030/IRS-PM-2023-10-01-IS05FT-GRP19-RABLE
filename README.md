@@ -40,6 +40,8 @@ Our team had an amazing time working on this project, and hope to share our insi
 
 ## SECTION 5 : USER GUIDE
 
+For training, Please refer to https://github.com/hyy-2000/R-ABLE
+
 `Refer to appendix <Installation & User Guide> in project report at Github Folder: ProjectReport`
 
 ### [ 1 ] To run the system using iss-vm
