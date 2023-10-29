@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=devic
+    e-width, initial-scale=1.0">
+    <title>RABLE</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <style>
+        body {
+            background-color: #00244F;
+            margin-right:10%;z
+            margin-left:10%;
+            padding: 0;
+        }
+
+
+        /* 样式可以在这里定义，或者链接到外部CSS文件 */
+        /* 例如，导航栏的样式 */
+        #navbar {
+            background-color: #00244F;
+            color: #fff;
+            padding: 0.5%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* 修改这里，使所有链接右对齐 */
+            top:0;
+            width:80%;
+            position: fixed; /* 固定导航栏 */
+            z-index: 100;
+        }
+
+        #navbar a:hover {
+        border-bottom: 2px solid #fff; /* 鼠标悬停时显示白色下划线 */
+        }
+        #navbar a {
+            font-family: 'Rockwell Extra Bold', sans-serif;
+            font-size : 125%;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            margin-right: 3%;
+            cursor: pointer; /* 添加鼠标指针样式，表示链接可点击 */
+            position: relative; /* 为了给hover伪类创建相对定位的上下文 */
+            line-height: 2; /* 设置行间距为文字大小的两倍 */
+        }
+
+        #navbar a::after {
+            content: ""; /* 用于创建下划线 */
+            display: block;
+            bottom: 0; /* 调整下划线与文字之间的距离 */
+            position: absolute;
+            left: 0;
+            width: 0; /* 初始时下划线为0宽度 */
+            height: 1%;
+            background-color: #fff;
+            transition: width 0.3s ease; /* 添加过渡效果 */
+        }
+
+        #navbar a:hover::after {
+            width: 100%; /* 鼠标悬停时下划线宽度变为100% */
+        }
+
+
+        #logo {
+            width: 15%;
+            height: 20%;
+            margin-right: auto;
+        }
+        #about {
+        background-color: #00244F; /* 设置背景颜色 */
+        padding: 1.5%; /* 增加内边距 */
+        color: #fff; /* 设置文字颜色 */
+        }
+
+        #tryFloatingButton {
+            position: fixed;
+            bottom: 3%;
+            left: 90%;
+            background-color: #00244F;
+            color: #fff;
+            padding: 1%;
+            border-radius: 1%;
+            cursor: pointer;
+        }
+
+        #tryFloatingButton img {
+            width: 85%; /* 设置图片宽度 */
+            height: 35%; /* 设置图片高度 */
+            cursor: pointer; /* 添加鼠标指针样式，表示按钮可点击 */
+            transition: all 0.3s; /* 添加过渡效果 */
+        }
+
+        #tryFloatingButton:hover img {
+            transform: scale(1.1); /* 鼠标悬停时放大图片 */
+        }
+
+        #modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            /*background-image: url('img/planet.jpg'); /* 设置背景图片的URL */
+            /*background-size: cover; /* 图片适应弹窗大小 */
+            justify-content: center;
+            align-items: center;
+            z-index: 999; /* 确保弹窗覆盖其他内容 */
+        }
+        #modal-content {
+            /*background-color: #F2F2F2;*/
+            background-image: url('img/planet.jpg'); /* 设置背景图片的URL */
+            background-size: cover; /* 图片适应弹窗大小 */
+            padding: 2%;
+            text-align: center;
+            width: 100%; /* 设置宽度为页面的一半 */
+            height: 60%; /* 设置最大高度为页面的一半 */
+            /*overflow-y: auto; /* 添加垂直滚动条以适应内容 */
+            position: relative;
+            color: #fff;
+        }
+
+        #modal-content h2 {
+            font-size: 24%; /* 调整"Upload an Image"字号 */
+            color: #fff;
+        }
+
+
+        #upload-button-container {
+            text-align: center;
+            margin-top: 5%;
+        }
+
+        #upload-button {
+            background-color: #00244F;
+            color: #fff;
+            padding:1.5% 3%;
+            border: none;
+            cursor: pointer;
+        }
+
+        #upload-button:hover {
+            background-color: #ccc; /* 鼠标悬停时的背景颜色 */
+        }
+
+        #uploaded-image {
+            max-width: 30%;
+            max-height: 30%;
+            margin: 0 auto;
+            display: block; /* 让图片居中显示 */
+        }
+
+        #uploaded-image-container {
+            margin-top: 5%;
+            max-height: 50%;
+            max-width: 100%;
+            align-items: center;
+            justify-content: center;
+            display: none;
+        }
+
+        #text-box {
+            width: 65%;
+            height: 20%;
+            padding: 1%;
+            margin-top: 5%;
+            border-radius: 5px; /* 添加圆角 */
+            background-color: #f5f5f5; /* 设置背景颜色 */
+            font-size: 120%; /* 设置字体大小 */
+            font-family: "Garamond", sans-serif;
+            color: #023059; /* 设置文本颜色 */
+            resize: none; /* 防止文本框大小可调整 */
+            margin-bottom: 2%; /* 增加底部外边距 */
+        }
+
+        #submit-button {
+            background-color: #00244F;
+            color: #fff;
+            padding: 1.5% 3%;
+            border: none;
+            cursor: pointer;
+            margin-right: 1%;
+            margin-top: 2%; /* 增加顶部外边距，与text-box的底部外边距相对应 */
+
+        }
+
+        #submit-button:hover {
+            background-color: #ccc; /* 鼠标悬停时的背景颜色 */
+            color: #00244F;
+        }
+
+        #close-modal {
+            background-color: #ccc;
+            color: #00244F;
+            padding:1.5% 3%;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            margin-top: 5%; /* 增加顶部外边距以下移 */
+            right:0.1%;
+        }
+
+        #close-modal:hover {
+            background-color: #ff0000; /* 鼠标悬停时的背景颜色 */
+            color: #FFFFFF;
+        }
+
+        #feedback-dialog {
+            display: none;
+            font-family: "Garamond", sans-serif;
+            background-color: #00244F;
+            color: #94D2FF;
+            width: 15%;
+            height: 3%;
+            padding: 5%;
+            font-weight: bold; /* 加粗字体 */
+            text-align: center;
+            margin: 0 auto; /* 水平居中 */
+            position: absolute;
+            top: 50%; /* 垂直居中 */
+            left: 50%; /* 垂直居中 */
+            transform: translate(-50%, -50%); /* 通过平移来实现垂直居中 */
+            animation: slideIn 0.5s ease forwards; /* 添加弹出动画 */
+        }
+        @keyframes slideIn {
+            from {
+                transform: translate(-50%, -150%); /* 初始位置 */
+                opacity: 0; /* 初始透明度 */
+            }
+            to {
+                transform: translate(-50%, -50%); /* 结束位置 */
+                opacity: 1; /* 结束透明度 */
+            }
+        }
+
+        #close-feedback {
+            background-color: #cccccc; /* 按钮的背景颜色 */
+            color: #FFFFFF; /* 文字颜色 */
+            padding: 5px 10px; /* 按钮内边距 */
+            border: 10px; /* 去掉按钮边框 */
+            cursor: pointer; /* 鼠标指针样式 */
+            position: absolute; /* 绝对定位 */
+            top: 10%; /* 距离底部的距离 */
+            right: 5%; /* 距离右侧的距离 */
+        }
+
+        #close-feedback:hover {
+            background-color: #ff3333; /* 鼠标悬停时的背景颜色 */
+        }
+
+        .textbox {
+        background-color: #00244F;
+        font-family: 'Times New Roman', serif;
+        font-weight: bold;
+        color: #94D2FF; /* 灰色字体颜色 */
+        margin-top: 3%;
+        margin-bottom: 2%; /* 适中的文本框间距 */
+        line-height: 1; /* 设置适中的行间距 */
+        font-size: 135%; /* 设置字体大小 */
+        float: right; /* 使用 float 来右对齐 */
+        clear: right; /* 清除浮动，确保下面的元素不受影响 */
+    }
+
+    .textbox-container {
+        display: flex;
+    }
+
+    .textbox1 {
+        margin-top: 1%;
+        margin-right: 2%;
+        margin-bottom: -5%;
+    }
+
+    .textbox1 h2 {
+        font-family: 'Times New Roman', serif;
+        font-size: 420%; /* 放大标题字号 */
+        color: #ffffff; /* 蓝色标题颜色 */
+        align-items: flex-end;
+    }
+
+    .textbox1 h3 {
+        font-family: 'Times New Roman', serif;
+        font-size: 400%; /* 放大标题字号 */
+        color: #94D2FF; /* 蓝色标题颜色 */
+        align-items: flex-end;
+    }
+    .text-container1 {
+        text-align: left; /* 内部左对齐 */
+        text-indent: 2em;
+        float: right; /* 向右浮动 */
+        right: 0; /* 距离右侧为0 */
+        position: relative; /* 相对定位，以便创建空间放置上方绝对定位的文本框 */
+        z-index: 1; /* 设置堆叠顺序，使其位于上方 */
+        font-family: "Garamond", sans-serif;
+        font-size: 23px;
+    }
+
+    .confidence-bar {
+        width: 100%;
+        background: none; /* 去掉灰色的背景 */
+    }
+
+    .confidence-level {
+        width: 100%;
+        height: 50%;
+        text-align: center;
+        line-height: 20px;
+        color: white;
+        border-radius: 10px; /* 添加圆角，使其看起来像圆柱 */
+        background: linear-gradient(to right, red, green); /* 使用渐变颜色，可以调整红绿色来表示置信度 */
+    }
+
+    .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .popup-content {
+        background: #fff;
+        padding: 20px;
+        text-align: center;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #close-popup {
+        margin-top: 10px;
+        padding: 5px 10px;
+        background: #007BFF;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+
+
+}
+
+        /* 其他样式可以根据需要添加 */
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <img id="logo" src="img/logo2.jpg">
+        <a id="aboutLink">About</a>
+        <a id="reportLink" href="project_report.pdf" target="_blank">Report</a>
+        <a id="codeLink" href="https://github.com/zhyx1030/IRS-PM-2023-10-01-IS05FT-GRP19-RABLE" target="_blank">Code</a>
+        <a id="videoLink" href="https://youtu.be/x92ZJYSoL0E" target="_blank">Video</a>
+    </div>
+
+    <!-- "Have a try!"浮动按钮 -->
+    <div id="tryFloatingButton">
+        <img src="img/button.jpg">
+    </div>
+
+    <div id="modal">
+        <div id="custom-popup" class="popup" style="z-index: 50; display: none">
+            <div class="popup-content">
+                <!-- 添加弹出窗口内容，比如警告消息 -->
+                <p>Please upload the well-formatted image!</p>
+                <button id="close-popup">Close</button>
+            </div>
+        </div>
+
+        <div id="modal-content" style="display: flex">
+            <div style="flex: 1;max-width: 50%">
+                <h3>Upload an Image</h3>
+                <input type="file" id="image-upload" accept="image/*"> <!-- 图像上传输入框 -->
+                <div id="image-result-container" >
+                    <div id="uploaded-image-container">
+                        <img id="uploaded-image" src="#" alt="Uploaded Image"> <!-- 显示上传的图像 -->
+                    </div>
+                </div>
+                <div id="upload-button-container">
+                    <button id="upload-button">Upload Image</button>
+                </div>
+            </div>
+            <div style="flex: 1;max-width: 50%;">
+                <div id="image-result-container2">
+                    <div id="classification-results">
+                        <h3>Classification Results:</h3>
+                        <ul id="top-classes"></ul> <!-- 显示置信度最高的前五类 -->
+                    </div>
+                </div>
+                <textarea id="text-box" rows="4" cols="50" placeholder="Enter text here..."></textarea> <!-- 文字说明框 -->
+                <div style="flex: 2">
+                    <button id="submit-button">Submit</button> <!-- 提交按钮 -->
+                    <button id="close-modal">Close</button> <!-- 关闭弹出窗口按钮 -->
+                    <div id="feedback-dialog" style="display:none">
+                        Thank you for your feedback!
+                        <button id="close-feedback">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="about">
+
+        <div id="upSection" style="max-width: 100%">
+            <div class="textbox1">
+                <h3>Exploring the Future of </h3>
+            </div>
+
+            <div class="textbox-container" style="max-width: 100%">
+                <!-- 第一个文本框 -->
+                <div class="textbox1">
+                    <h2>Image Classification </h2>
+                </div>
+
+                <div class="textbox1">
+                    <h3>with</h3>
+                </div>
+
+                <div class="textbox1">
+                    <h2>Partial Labels</h2>
+                </div>
+                <!-- 添加更多的文本框，每个文本框都放在一个 <div class="textbox"> 中 -->
+            </div>
+
+            <div class="textbox">
+                <div class="text-container1" style="width: 70%">
+                    <p><p>Our project aims to rebalance data-hungry scenario, especially alleviating the</p>
+                    <p>imbalance of the partial labeling dataset through data augmentation,and to propose</p>
+                    <p>a new network model called RABLE to improve the performance of partial labeling</p>
+                    <p>task by using the contrastive learning architecture based on ABLE.</p>
+                <div>
+            </div>
+        </div>
+
+        <div id="bottomSection">
+            <!-- 文本框 -->
+            <div class="about-header-container">
+              <img src="img/header2.png"
+                   style="max-width: 99%;
+                   margin:auto;">
+            </div>
+            <div class="video-container" style="text-align: center; margin-top: 5%">
+                <video controls width="80%" height="auto">
+                    <source src="video/promotion%20video.MOV" type="video/mp4">
+                </video>
+            </div>
+            <div class="about-header1">
+                <h1>What is Classification ?</h1>
+            </div>
+
+            <div class="about-content">
+                <p>Classification is a machine learning task that involves categorizing data into predefined classes or categories. It's a type of supervised learning where the algorithm is trained on a labeled dataset, which means that each data point in the training dataset is associated with a class label. </p>
+                <p>The goal of a classification algorithm is to learn a mapping from the input features to the corresponding class labels so that it can make predictions or assign class labels to new, unseen data.</p>
+            </div>
+
+            <div class="about-header1">
+                <h1>What is Supervised Learning ?</h1>
+            </div>
+
+            <div class="about-content">
+                <p>Supervised learning is a type of machine learning in which an algorithm is trained on a labeled dataset, meaning that the input data is paired with the corresponding output or target labels. </p>
+                <p>The algorithm learns to map the input data to the correct output based on this training data.</p>
+                <p>Supervised learning is used for tasks like classification (categorizing data into classes), regression (predicting a continuous value), and more. The key characteristic of supervised learning is the presence of labeled data for training.</p>
+            </div>
+
+            <div class="about-header1">
+                <h1>What is Partial Label Learning ?</h1>
+            </div>
+
+            <div class="about-content">
+                <p>Partial labels, on the other hand, refer to a situation where the labels provided in the training dataset are incomplete or imprecise. </p>
+                <p>In some cases, it may not be possible to assign a single, definitive label to each data point. Instead, you might have partial information about the labels, which could include uncertainty, ambiguity, or multiple possible labels for a single data point.</p>
+                <p>Dealing with partial labels is a challenging problem in machine learning, and various techniques and models have been developed to handle such situations, like multi-label classification or techniques for dealing with uncertainty in labels.</p>
+            </div>
+        </div>
+
+     </section>
+
+    <style>
+        /* 添加以下CSS样式，用于美化标题和正文部分 */
+        .about-header-container {
+            background-color: #00244F; /* 纯白背景颜色 */
+            margin-top: 20%;
+            position: relative;
+        }
+
+        .about-header-container p {
+            margin: 0; /* 移除默认的段落外边距 */
+            color: #00244F; /* 文本颜色 */
+        }
+
+        .about-header h1 {
+            font-size: 5%;
+        }
+
+        .about-header1 {
+            background-color: #00244F;
+            color: #FFFFFF;
+            padding: 2%;
+            text-align: left;
+            margin-top: 5%; /* 添加顶部边距来下移元素 */
+            position: relative; /* 为了在下方添加下划线 */
+            transition: color 0.3s; /* 添加字体颜色的过渡效果 */
+        }
+
+        .about-header1 h1 {
+            font-size: 180%;
+        }
+        .about-header1::after {
+            content: ""; /* 用于创建下划线 */
+            position: absolute;
+            left: 1%;
+            right: 1%;
+            bottom: 14%;
+            width: 100%;
+            height: 1.5%; /* 下划线高度 */
+            background-color: #fff; /* 初始白色下划线颜色 */
+            transition: background-color 0.3s; /* 添加过渡效果 */
+        }
+        .about-header1:hover {
+            color: #94D2FE; /* 悬停时字体颜色变成蓝色 */
+        }
+
+
+        .about-header1:hover::after {
+            background-color: #94D2FE; /* 悬停时下划线变成蓝色 */
+        }
+
+        .about-content {
+            background-color: #00244F;
+            color: #FFFFFF;
+            padding: 1%;
+            margin-top: 3%;
+
+        }
+
+        .about-content p {
+            font-size: 100%;
+            line-height: 1.5;
+            font-family: "Garamond", sans-serif;
+        }
+
+
+    </style>
+
+
+        <!-- 可以根据需要添加更多的文本框 -->
+
+
+
+    <section id="report">
+        <h1>Report</h1>
+        <!-- 这是Report页面的内容 -->
+    </section>
+
+    <section id="code">
+        <h1>Code</h1>
+        <!-- 这是Code页面的内容 -->
+    </section>
+
+
+
+    <section id="video">
+        <h1>Video</h1>
+        <!-- 这是Video页面的内容 -->
+    </section>
+
+
+    <script>
+        function displayClassificationResult(data) {
+        const topClassesList = document.getElementById('top-classes');
+        topClassesList.innerHTML = ''; // 清空现有列表
+
+        const classificationResult = data;
+        const classLabels = Object.keys(classificationResult);
+        console.log(classificationResult);
+        console.log(classLabels);
+        // 设置起始颜色，例如淡粉色（根据需要修改颜色值）
+        const startRed = 255;
+        const startGreen = 182;
+
+        for (classLabel of classLabels) {
+            if (classLabel === 'error') {
+                // Show the custom pop-up window
+                classLabel = ''
+                const popup = document.getElementById('custom-popup');
+                popup.style.display = 'block';
+
+                // Close the pop-up when the "Close" button is clicked
+                const closePopupButton = document.getElementById('close-popup');
+                closePopupButton.addEventListener('click', function () {
+                    popup.style.display = 'none';
+                });
+            }
+            const confidence = classificationResult[classLabel];
+            const red = Math.floor(startRed * (1 - confidence)); // 计算红色通道
+            const green = Math.floor(startGreen * confidence); // 计算绿色通道
+            const gradientColor = generateGradientColor(red, green); // 生成渐变颜色
+
+            const listItem = document.createElement('li');
+            listItem.style.display = "flex"; // 使用flex布局
+            listItem.innerHTML = `
+                <div class="class-label" style="flex: 1;">${classLabel}</div>
+                <div class="confidence-bar" style="flex: 1;">
+                    <div class="confidence-level" style="width: ${confidence * 40}%; background: ${gradientColor};"></div>
+                </div>
+             `;
+            topClassesList.appendChild(listItem);
+        }
+
+        function generateGradientColor(red, green) {
+            // 生成从淡粉色到浅绿色的渐变颜色
+            const colorStops = [];
+            for (let i = 0; i <= 100; i++) {
+                const r = Math.floor(red + (255 - red) * (i / 100));
+                const g = Math.floor(green + (255 - green) * (i / 100));
+                colorStops.push(`rgb(${r}, ${g}, 88, 0.8) ${i}%`);
+            }
+            return `linear-gradient(to left, ${colorStops.join(', ')})`;
+        }
+
+    }
+
+
+        // 获取导航栏链接元素
+        const aboutLink = document.getElementById('aboutLink');
+        const reportLink = document.getElementById('reportLink');
+        const codeLink = document.getElementById('codeLink');
+        const videoLink = document.getElementById('videoLink');
+        // const tryLink = document.getElementById('tryLink');
+
+        // 获取各个页面元素
+        const aboutPage = document.getElementById('about');
+        const reportPage = document.getElementById('report');
+        const codePage = document.getElementById('code');
+        const videoPage = document.getElementById('video');
+
+        // 获取弹出窗口和其内容
+        const modal = document.getElementById('modal');
+        const modalContent = document.getElementById('modal-content');
+
+        // 获取上传图像的输入框和显示图像的元素
+        const imageUpload = document.getElementById('image-upload');
+        const uploadedImage = document.getElementById('uploaded-image');
+
+        // 获取文字说明框和关闭按钮
+        const textBox = document.getElementById('text-box');
+        const closeModal = document.getElementById('close-modal');
+        // 获取"Have a try!"浮动按钮
+        const tryFloatingButton = document.getElementById('tryFloatingButton');
+
+        // 初始化页面显示
+        aboutPage.style.display = 'block';
+        reportPage.style.display = 'none';
+        codePage.style.display = 'none';
+        videoPage.style.display = 'none';
+
+        // 添加事件监听器，实现页面切换
+        aboutLink.addEventListener('click', () => {
+            showPage(aboutPage);
+        });
+
+
+
+        // 点击 "Have a try!" 链接时显示弹出窗口
+        tryFloatingButton.addEventListener('click', () => {
+            modal.style.display = 'block';
+        });
+
+
+        // 点击关闭按钮时关闭弹出窗口
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        const uploadButton = document.getElementById('upload-button');
+        const topClassesList = document.getElementById('top-classes');
+        const submitButton = document.getElementById('submit-button');
+        const feedbackDialog = document.getElementById('feedback-dialog');
+        const closefeedback = document.getElementById('close-feedback');
+
+        uploadButton.addEventListener('click', function () {
+            const modal_uploaded_image_container = document.getElementById('uploaded-image-container');
+            modal_uploaded_image_container.style.display = 'block';
+            const imageUploadInput = document.getElementById('image-upload');
+            const selectedImage = imageUploadInput.files[0]; // 获取选择的图像文件
+
+            // 创建一个FormData对象，用于将图像数据发送到服务器
+            const formData = new FormData();
+            formData.append('image', selectedImage); // 使用 'image' 作为字段名
+
+            // 发送POST请求到服务器的 '/upload-image' 端点
+            fetch('http://127.0.0.1:5000/upload-image', {
+                method: 'POST',
+                body: formData // 将FormData对象发送到服务器
+            })
+            .then(response => response.json())
+            .then(data => {
+                //console.log(data); // 服务器返回的响应
+                displayClassificationResult(data);
+                // 这里你可以根据需要进行其他操作
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+
+        imageUpload.addEventListener('change', function () {
+            const file = this.files[0]; // 获取用户选择的图像文件
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    uploadedImage.src = e.target.result; // 设置图像元素的src属性
+                };
+                reader.readAsDataURL(file); // 读取图像文件并将其转换为Data URL
+            }
+        });
+        // 示例：处理用户提交文本
+        submitButton.addEventListener('click', function () {
+            feedbackDialog.style.display = 'block';
+        });
+
+        document.getElementById('close-modal').addEventListener('click', function () {
+            document.getElementById('modal').style.display = 'none';
+        });
+
+        closefeedback.addEventListener('click', function () {
+            feedbackDialog.style.display = 'none';
+        });
+
+
+        // 显示指定页面，隐藏其他页面
+        function showPage(page) {
+            aboutPage.style.display = 'none';
+            reportPage.style.display = 'none';
+            codePage.style.display = 'none';
+            videoPage.style.display = 'none';
+            page.style.display = 'block';
+        }
+
+    </script>
+</body>
+</html>
